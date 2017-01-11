@@ -133,20 +133,20 @@ SZA_libRadTran_organizeAERONETData <- function(AERONETData_closestDate) {
   }
 
   # Measurement details
-  measDetails <- list('fechaMedidaAERONET' = '',
-                  'Julian_Day' = '',
-                  'average_solar_zenith_angle_for_flux_calculation' = '',
-                  'solar_zenith_angle_for_1020nm_scan' = '',
-                  'Water(cm)' = '', 
-                  '870-440AngstromParam(AOTExt)-Total' = '',
-                  '870-440AngstromParam(AOTAbsp)' = '',
-                  'sky_error' = '',
-                  'sun_error' = '',
-                  'alpha440-870' = '',
-                  'tau440(measured)' = '',
-                  'sphericity' = '',
-                  'if_level2_AOD' = '')
-  measDetails$fechaMedidaAERONET = as.POSIXlt((AERONETData_closestDate$values[1] - 719529)*86400, origin = "1970-01-01", tz = "UTC")
+  measDetails <- list('AERONET_date' = '',
+                      'Julian_Day' = '',
+                      'average_solar_zenith_angle_for_flux_calculation' = '',
+                      'solar_zenith_angle_for_1020nm_scan' = '',
+                      'Water(cm)' = '', 
+                      '870-440AngstromParam(AOTExt)-Total' = '',
+                      '870-440AngstromParam(AOTAbsp)' = '',
+                      'sky_error' = '',
+                      'sun_error' = '',
+                      'alpha440-870' = '',
+                      'tau440(measured)' = '',
+                      'sphericity' = '',
+                      'if_level2_AOD' = '')
+  measDetails$AERONET_date = as.POSIXlt((AERONETData_closestDate$values[1] - 719529)*86400, origin = "1970-01-01", tz = "UTC")
   for (numMedida in 2:length(measDetails)) {
     indexMedida <- which(AERONETData_closestDate$varNames == names(measDetails[numMedida]))
     measDetails[numMedida] <- AERONETData_closestDate$values[indexMedida]

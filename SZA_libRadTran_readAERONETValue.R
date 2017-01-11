@@ -6,7 +6,7 @@ SZA_libRadTran_readAERONETValue <- function(AERONET_typeFile, AERONET_DataLevel,
   # Load AERONET data from files
   AERONET_file <- paste0('CIMEL_AEMET_', AERONET_typeFile, '_', format(measurementDate, '%y'), '0101_', format(measurementDate, '%y'),
                           '1231_Madrid_Version', '2', '_Level', toString(AERONET_DataLevel), '.nc')
-  dirFichero <- file.path(./Data, AERONET_file, fsep = .Platform$file.sep)
+  dirFichero <- file.path('./Data', AERONET_file, fsep = .Platform$file.sep)
   nc <- open.nc(dirFichero, write = FALSE)
   details <- file.inq.nc(nc)
   AERONETData_Dates_netCDF <- var.get.nc(nc, 1) # Variable 1 is Date and Time in netCDF file
